@@ -1,1 +1,1 @@
-# learn-rails
+# Learn Rails
