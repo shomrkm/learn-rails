@@ -1,0 +1,17 @@
+{
+  "name": "learn-rails",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        }
+      },
+    }
+  },
+  "service": "web",
+  "workspaceFolder": "/myapp",
+  "shutdownAction": "stopCompose"
+}
