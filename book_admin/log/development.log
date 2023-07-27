@@ -460,3 +460,66 @@ Completed 200 OK in 45ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 548
 
 
   [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  [1m[36mPublisher Load (1.6ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" ORDER BY "publishers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (5.3ms)[0m  [1m[32mINSERT INTO "books" ("name", "published_on", "price", "created_at", "updated_at", "publisher_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "exercise"], ["published_on", nil], ["price", 10000], ["created_at", "2023-07-27 23:03:38.930669"], ["updated_at", "2023-07-27 23:03:38.930669"], ["publisher_id", 1]]
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBook Load (4.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Load (0.8ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Load (0.1ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mPublisher Load (1.0ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" ORDER BY "publishers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPublisher Load (0.6ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" ORDER BY "publishers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (4.8ms)[0m  [1m[32mINSERT INTO "books" ("name", "published_on", "price", "created_at", "updated_at", "publisher_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "We Love lovely Cat"], ["published_on", nil], ["price", 999], ["created_at", "2023-07-27 23:12:53.864094"], ["updated_at", "2023-07-27 23:12:53.864094"], ["publisher_id", 1]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBook Load (2.2ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Destroy (14.3ms)[0m  [1m[31mDELETE FROM "books" WHERE "books"."id" = ?[0m  [["id", 5]]
+Book is deleted: {"id"=>5, "name"=>"We Love lovely Cat", "published_on"=>nil, "price"=>999, "created_at"=>Thu, 27 Jul 2023 23:12:53.864094000 UTC +00:00, "updated_at"=>Thu, 27 Jul 2023 23:12:53.864094000 UTC +00:00, "publisher_id"=>1}
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  [1m[36mBook Load (2.1ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Destroy (12.6ms)[0m  [1m[31mDELETE FROM "books" WHERE "books"."id" = ?[0m  [["id", 4]]
+Book is deleted: {"id"=>4, "name"=>"exercise", "published_on"=>nil, "price"=>10000, "created_at"=>Thu, 27 Jul 2023 23:03:38.930669000 UTC +00:00, "updated_at"=>Thu, 27 Jul 2023 23:03:38.930669000 UTC +00:00, "publisher_id"=>1}
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBook Load (2.5ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Destroy (13.2ms)[0m  [1m[31mDELETE FROM "books" WHERE "books"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Load (0.1ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Update (12.2ms)[0m  [1m[33mUPDATE "books" SET "name" = ?, "updated_at" = ? WHERE "books"."id" = ?[0m  [["name", "Book 1"], ["updated_at", "2023-07-27 23:22:07.738214"], ["id", 1]]
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBook Load (2.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddStatusToBooks (20230727232457)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "books" ADD "sales_status" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230727232457"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mPublisher Load (1.4ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" ORDER BY "publishers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (6.7ms)[0m  [1m[32mINSERT INTO "books" ("name", "published_on", "price", "created_at", "updated_at", "publisher_id", "sales_status") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "enum Book 1"], ["published_on", nil], ["price", 100], ["created_at", "2023-07-27 23:28:33.112863"], ["updated_at", "2023-07-27 23:28:33.112863"], ["publisher_id", 1], ["sales_status", 1]]
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBook Load (3.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBook Load (2.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."sales_status" = ?[0m  [["sales_status", 1]]
+  [1m[36mBook Load (2.8ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  [1m[36mBook Load (2.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."sales_status" != ?[0m  [["sales_status", 1]]
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."sales_status" != ?[0m  [["sales_status", 1]]
+  [1m[36mBook Load (2.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  [1m[36mPublisher Load (1.6ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" ORDER BY "publishers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (6.4ms)[0m  [1m[32mINSERT INTO "books" ("name", "published_on", "price", "created_at", "updated_at", "publisher_id", "sales_status") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "enum Book 2"], ["published_on", nil], ["price", 100], ["created_at", "2023-07-27 23:35:03.790724"], ["updated_at", "2023-07-27 23:35:03.790724"], ["publisher_id", 1], ["sales_status", 2]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."sales_status" != ?[0m  [["sales_status", 1]]
