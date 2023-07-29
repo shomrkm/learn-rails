@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+book_admin/tmp/
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
